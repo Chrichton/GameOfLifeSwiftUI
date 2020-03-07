@@ -11,7 +11,11 @@ import Foundation
 class Store: ObservableObject {
     @Published var cells: [[String]]
     
-    init(cells: [[String]] = [[]]) {
-        self.cells = cells
+    init(liveCells: Set<Point>, width: Int, height: Int) {
+        self.cells = (0..<width).map{ x in
+            (0..<height).map{ y in
+                liveCells.contains(Point(x: x, y: y)) ? "X" : " "
+            }
+        }
     }
 }

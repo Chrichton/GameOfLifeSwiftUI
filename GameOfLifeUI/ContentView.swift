@@ -10,10 +10,9 @@ import SwiftUI
 
 struct ContentView: View {
   @State var isStarted = false
-        @ObservedObject var store: Store = Store(cells: [
-            ["X", " ", "X"],
-            [" ", "X", " "]
-        ])
+    @ObservedObject var store = Store(
+        liveCells: Set([Point(x: 5,y: 4), Point(x: 5,y: 5), Point(x: 5,y: 6)]),
+        width: 20, height: 20)
         
         func simulateGame() {
             if isStarted {
@@ -24,17 +23,6 @@ struct ContentView: View {
 
         var body: some View {
             VStack {
-                HStack {
-                    Text("X")
-                    Text(" ")
-                    Text("X")
-                }
-                HStack {
-                    Text(" ")
-                    Text("X")
-                    Text(" ")
-                }
-                
                 ForEach(store.cells, id: \.self){ row in
                     HStack {
                         ForEach(row, id: \.self) { cell in
