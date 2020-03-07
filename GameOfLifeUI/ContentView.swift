@@ -51,15 +51,6 @@ struct ContentView: View {
         }
     }
 
-    class Store: ObservableObject {
-        @Published var cells: [[String]]
-        
-        init(cells: [[String]] = [[]]) {
-            self.cells = cells
-        }
-    }
-
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

@@ -13,6 +13,8 @@
 		FF6121E224134BA100CF784C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF6121E124134BA100CF784C /* Assets.xcassets */; };
 		FF6121E524134BA100CF784C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF6121E424134BA100CF784C /* Preview Assets.xcassets */; };
 		FF6121E824134BA100CF784C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF6121E624134BA100CF784C /* LaunchScreen.storyboard */; };
+		FF6121F224134EEC00CF784C /* GameOfLife.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6121F124134EEC00CF784C /* GameOfLife.swift */; };
+		FF6121F424134FB900CF784C /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6121F324134FB900CF784C /* Store.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		FF6121E424134BA100CF784C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FF6121E724134BA100CF784C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF6121E924134BA100CF784C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF6121F124134EEC00CF784C /* GameOfLife.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfLife.swift; sourceTree = SOURCE_ROOT; };
+		FF6121F324134FB900CF784C /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +60,11 @@
 		FF6121DA24134BA000CF784C /* GameOfLifeUI */ = {
 			isa = PBXGroup;
 			children = (
+				FF6121F124134EEC00CF784C /* GameOfLife.swift */,
 				FF6121DB24134BA000CF784C /* AppDelegate.swift */,
 				FF6121DD24134BA000CF784C /* SceneDelegate.swift */,
 				FF6121DF24134BA000CF784C /* ContentView.swift */,
+				FF6121F324134FB900CF784C /* Store.swift */,
 				FF6121E124134BA100CF784C /* Assets.xcassets */,
 				FF6121E624134BA100CF784C /* LaunchScreen.storyboard */,
 				FF6121E924134BA100CF784C /* Info.plist */,
@@ -146,8 +152,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF6121F424134FB900CF784C /* Store.swift in Sources */,
 				FF6121DC24134BA000CF784C /* AppDelegate.swift in Sources */,
 				FF6121DE24134BA000CF784C /* SceneDelegate.swift in Sources */,
+				FF6121F224134EEC00CF784C /* GameOfLife.swift in Sources */,
 				FF6121E024134BA000CF784C /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
