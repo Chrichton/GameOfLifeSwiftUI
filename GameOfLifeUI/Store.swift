@@ -10,6 +10,8 @@ import Foundation
 
 typealias ViewModel = [[String]]
 
+//typealias ViewModel = [String]
+
 class Store: ObservableObject {
     @Published var cells: ViewModel
     
@@ -31,6 +33,10 @@ class Store: ObservableObject {
             }
         }
     }
+    
+//    private static func createCells(liveCells: Set<Point>, size: Size) -> ViewModel {
+//        partition
+//    }
     
     func nextGeneration() {
         liveCells = getNextGeneration(liveCells: liveCells, allPoints: allPoints)
