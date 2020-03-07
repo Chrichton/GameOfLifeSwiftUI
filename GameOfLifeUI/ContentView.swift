@@ -9,10 +9,56 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        Text("Hello, World!")
+  @State var isStarted = false
+        @ObservedObject var store: Store = Store(cells: [
+            ["X", " ", "X"],
+            [" ", "X", " "]
+        ])
+        
+        func simulateGame() {
+            if isStarted {
+                store.cells = [[]]
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300), execute: simulateGame)
+            }
+        }
+
+        var body: some View {
+            VStack {
+                HStack {
+                    Text("X")
+                    Text(" ")
+                    Text("X")
+                }
+                HStack {
+                    Text(" ")
+                    Text("X")
+                    Text(" ")
+                }
+                
+                ForEach(store.cells, id: \.self){ row in
+                    HStack {
+                        ForEach(row, id: \.self) { cell in
+                            Text(cell)
+                        }
+                    }
+                }
+                Spacer()
+                Button("Start/Stop"){
+                    self.isStarted.toggle()
+                    self.simulateGame()
+                }
+            }
+        }
     }
-}
+
+    class Store: ObservableObject {
+        @Published var cells: [[String]]
+        
+        init(cells: [[String]] = [[]]) {
+            self.cells = cells
+        }
+    }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
