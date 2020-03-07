@@ -12,7 +12,7 @@ struct ContentView: View {
   @State var isStarted = false
     @ObservedObject var store = Store(
         liveCells: glider,
-        width: 20, height: 20)
+        size: Size(height: 20, width: 20))
         
         func simulateGame() {
             if isStarted {

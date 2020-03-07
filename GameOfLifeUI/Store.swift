@@ -8,25 +8,25 @@
 
 import Foundation
 
+typealias ViewModel = [[String]]
+
 class Store: ObservableObject {
-    @Published var cells: [[String]]
+    @Published var cells: ViewModel
     
-    private let width: Int
-    private let height: Int
+    private let size: Size
     private let allPoints: Set<Point>
     private var liveCells: Set<Point>
     
-    init(liveCells: Set<Point>, width: Int, height: Int) {
-        self.width = width
-        self.height = height
-        self.allPoints = getAllPoints(width: width, height: height)
+    init(liveCells: Set<Point>, size: Size) {
+        self.size = size
+        self.allPoints = getAllPoints(size)
         self.liveCells = liveCells
-        self.cells = Store.createCells(liveCells: liveCells, width: width, height: height)
+        self.cells = Store.createCells(liveCells: liveCells, size: size)
     }
     
-    private static func createCells(liveCells: Set<Point>, width: Int, height: Int) -> [[String]] {
-        return (0..<width).map{ x in
-            (0..<height).map{ y in
+    private static func createCells(liveCells: Set<Point>, size: Size) -> ViewModel {
+        return (0..<size.width).map{ x in
+            (0..<size.height).map{ y in
                 liveCells.contains(Point(x: x, y: y)) ? "X" : " "
             }
         }
@@ -34,6 +34,6 @@ class Store: ObservableObject {
     
     func nextGeneration() {
         liveCells = getNextGeneration(liveCells: liveCells, allPoints: allPoints)
-        cells = Store.createCells(liveCells: liveCells, width: width, height: height)
+        cells = Store.createCells(liveCells: liveCells, size: size)
     }
 }
