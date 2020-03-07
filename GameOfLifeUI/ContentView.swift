@@ -22,7 +22,7 @@ struct ContentView: View {
             ForEach(store.cells, id: \.self){ row in
                 HStack {
                     ForEach(row, id: \.self) { cell in
-                        Text(cell)
+                        Text(String(cell))
                     }
                 }
             }

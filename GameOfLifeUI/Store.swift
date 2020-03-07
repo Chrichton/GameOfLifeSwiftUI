@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias ViewModel = [[String]]
+typealias ViewModel = [[Character]]
 
 //typealias ViewModel = [String]
 
