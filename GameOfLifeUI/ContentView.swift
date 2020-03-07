@@ -17,7 +17,7 @@ struct ContentView: View {
         func simulateGame() {
             if isStarted {
                 store.nextGeneration()
-                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300), execute: simulateGame)
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100), execute: simulateGame)
             }
         }
 
