@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
   @State var isStarted = false
     @ObservedObject var store = Store(
-        liveCells: Set([Point(x: 5,y: 4), Point(x: 5,y: 5), Point(x: 5,y: 6)]),
+        liveCells: blinker,
         width: 20, height: 20)
         
         func simulateGame() {

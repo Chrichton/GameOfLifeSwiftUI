@@ -72,6 +72,9 @@ func printGeneration(liveCells: Set<Point>, width: Int, height: Int) {
     }
 }
 
+let blinker = Set([Point(x: 5,y: 4), Point(x: 5,y: 5), Point(x: 5,y: 6)])
+let glider  = Set([Point(x: 1,y: 0), Point(x: 2,y: 1), Point(x: 0,y: 2), Point(x: 1, y: 2), Point(x: 2, y: 2)])
+
 //let allPoints = getAllPoints(width: 20, height: 20)
 //var liveCells = Set([Point(x: 5,y: 4), Point(x: 5,y: 5), Point(x: 5,y: 6)])
 ////var liveCells = Set([Point(x: 1,y: 0), Point(x: 2,y: 1), Point(x: 0,y: 2), Point(x: 1, y: 2), Point(x: 2, y: 2)])
