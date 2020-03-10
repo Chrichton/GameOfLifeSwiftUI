@@ -10,8 +10,6 @@ import Foundation
 
 typealias ViewModel = [[Character]]
 
-//typealias ViewModel = [String]
-
 class Store: ObservableObject {
     @Published var cells: ViewModel
     
