@@ -8,12 +8,10 @@
 
 import Foundation
 
-typealias ViewModel = [[Character]]
-
-//typealias ViewModel = [String]
+typealias ViewModel = [String]
 
 class Store: ObservableObject {
-    @Published var cells: ViewModel
+    @Published var rows: ViewModel
     
     private let size: Size
     private let allPoints: [Point]
@@ -23,19 +21,19 @@ class Store: ObservableObject {
         self.size = size
         self.allPoints = getAllPointsFlat(size)
         self.liveCells = liveCells
-        self.cells = Store.createCells(liveCells: liveCells, size: size)
+        self.rows = Store.createCells(liveCells: liveCells, size: size)
     }
     
     private static func createCells(liveCells: Set<Point>, size: Size) -> ViewModel {
-        return getAllPoints(size).map{ rows in
-            (rows).map{ point in
-                liveCells.contains(point) ? "X" : " "
+        getAllPoints(size).map{ row in
+            row.reduce(into: ""){ accu, current in
+                accu.append(liveCells.contains(current) ? "X" : " ")
             }
         }
     }
     
     func nextGeneration() {
         liveCells = getNextGeneration(liveCells: liveCells, allPoints: allPoints)
-        cells = Store.createCells(liveCells: liveCells, size: size)
+        rows = Store.createCells(liveCells: liveCells, size: size)
     }
 }

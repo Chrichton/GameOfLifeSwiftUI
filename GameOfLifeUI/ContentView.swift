@@ -19,12 +19,8 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            ForEach(store.cells, id: \.self){ row in
-                HStack {
-                    ForEach(row, id: \.self) { cell in
-                        Text(String(cell))
-                    }
-                }
+            ForEach(store.rows, id: \.self){ row in
+                Text(row)
             }
             Spacer()
             Button(self.isStarted ? "Stop" : "Start"){
