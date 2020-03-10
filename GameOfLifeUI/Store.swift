@@ -16,27 +16,23 @@ class Store: ObservableObject {
     @Published var cells: ViewModel
     
     private let size: Size
-    private let allPoints: Set<Point>
+    private let allPoints: [Point]
     private var liveCells: Set<Point>
     
     init(liveCells: Set<Point>, size: Size) {
         self.size = size
-        self.allPoints = getAllPoints(size)
+        self.allPoints = getAllPointsFlat(size)
         self.liveCells = liveCells
         self.cells = Store.createCells(liveCells: liveCells, size: size)
     }
     
     private static func createCells(liveCells: Set<Point>, size: Size) -> ViewModel {
-        return (0..<size.width).map{ x in
-            (0..<size.height).map{ y in
-                liveCells.contains(Point(x: x, y: y)) ? "X" : " "
+        return getAllPoints(size).map{ rows in
+            (rows).map{ point in
+                liveCells.contains(point) ? "X" : " "
             }
         }
     }
-    
-//    private static func createCells(liveCells: Set<Point>, size: Size) -> ViewModel {
-//        partition
-//    }
     
     func nextGeneration() {
         liveCells = getNextGeneration(liveCells: liveCells, allPoints: allPoints)
