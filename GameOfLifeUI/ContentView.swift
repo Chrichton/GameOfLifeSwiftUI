@@ -18,9 +18,10 @@ struct ContentView: View {
     let fps = 10
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             ForEach(store.rows, id: \.self){ row in
                 Text(row)
+                    .font(.system(.body, design: .monospaced))
             }
             Spacer()
             Button(self.isStarted ? "Stop" : "Start"){
