@@ -18,11 +18,12 @@ struct ContentView: View {
     let fps = 10
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             ForEach(store.cells, id: \.self){ row in
                 HStack {
                     ForEach(row, id: \.self) { cell in
                         Text(String(cell))
+                            .font(.system(.body, design: .monospaced))
                     }
                 }
             }
